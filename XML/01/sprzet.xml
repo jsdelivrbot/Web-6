@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sprzet>
+	<zestawPC>
+		<nazwa>PC1</nazwa>
+		<komputer>
+			<procesor>i5 750</procesor>
+			<kartaGraficzna>GTX 970</kartaGraficzna>
+			<RAM wartosc="GB">8</RAM>
+		</komputer>
+		<peryferia>
+			<monitor>LG 38724920374</monitor>
+			<klawiatura>A4 Tech</klawiatura>
+			<mysz>Razer</mysz>
+		</peryferia>
+		<cena waluta="zł">1300.99</cena>
+	</zestawPC>
+	<zestawPC>
+		<nazwa>PC2</nazwa>
+		<komputer>
+			<procesor>i7 720</procesor>
+			<kartaGraficzna>GTX 1070</kartaGraficzna>
+			<RAM>16</RAM>
+		</komputer>
+		<peryferia>
+			<monitor>LG M@#$@#</monitor>
+			<klawiatura>Acer</klawiatura>
+			<mysz>Stara</mysz>
+		</peryferia>
+		<cena>1600.99</cena>
+	</zestawPC>
+</sprzet>

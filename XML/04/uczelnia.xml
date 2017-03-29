@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE uczelnia SYSTEM "uczelnia.dtd">
+<uczelnia>
+    <nazwa>Uniwersytet Gdanski</nazwa>
+    <rektor>
+        <tytul>Rektor</tytul>
+        <imie>Stefan</imie>
+        <nazwisko>Sokolowski</nazwisko>
+    </rektor>
+    <prorektor>
+        <tytul>Doktor</tytul>
+        <imie>Jan</imie>
+        <nazwisko>Kowalski</nazwisko>
+    </prorektor>
+    <prorektor>
+        <tytul>Doktor</tytul>
+        <imie>Marian</imie>
+        <nazwisko>Nowak</nazwisko>
+    </prorektor>
+    <wydzial>
+        <nazwa>Wydzial Prawa</nazwa>
+        <dziekan>
+            <tytul>Profesor</tytul>
+            <imie>Pawel</imie>
+            <nazwisko>Paczkowski</nazwisko>
+        </dziekan>
+        <prodziekan>
+            <tytul>Inzynier</tytul>
+            <imie>Dariusz</imie>
+            <nazwisko>Kiedrowicz</nazwisko>
+        </prodziekan>
+        <kierunek>
+            <nazwa>Informatyka</nazwa>
+            <kurs>
+                <nazwa>Programownie</nazwa>
+                <opis>Podstawy porgramowania w C</opis>
+                <forma>20 godzin cwiczen + 20 godzin wykladow</forma>
+                <limit>50</limit>
+            </kurs>
+        </kierunek>
+    </wydzial>
+    <wydzial>
+        <nazwa>Wydzial Prawa</nazwa>
+        <dziekan>
+            <tytul>Profesor</tytul>
+            <imie>Pawel</imie>
+            <nazwisko>Paczkowski</nazwisko>
+        </dziekan>
+        <prodziekan>
+            <tytul>Inzynier</tytul>
+            <imie>Dariusz</imie>
+            <nazwisko>Kiedrowicz</nazwisko>
+        </prodziekan>
+        <instytut>
+            <nazwa>Instytut Matematyki</nazwa>
+            <dyrektor>
+                <tytul>Magister</tytul>
+                <imie>Miroslaw</imie>
+                <nazwisko>Wojtowicz</nazwisko>
+            </dyrektor>
+            <katedra>
+                <nazwa>Katedra y</nazwa>
+                <dyrektor>
+                    <tytul>Magister</tytul>
+                    <imie>Adam</imie>
+                    <nazwisko>Kolakowski</nazwisko>
+                </dyrektor>
+            </katedra>
+        </instytut>
+    </wydzial>
+    <biblioteka></biblioteka>
+</uczelnia>

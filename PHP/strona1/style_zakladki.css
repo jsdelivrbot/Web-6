@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* reset marginesów i dopełnień */
+html, body, ul, li { margin: 0; padding: 0; }
+
+/* reset wysokości linii i fontu */
+h1, h2, h3, h4, ul, li, ol, p { margin:0; padding:0; font-size: 1em;
+line-height: 1.6em; }
+
+/* ustawienia ogólne */
+body { background-color: white;
+font: 0.825em/1.5em arial, tahoma, verdana, sans-serif; }
+
+/* szerokość strony */
+.content { width: 980px; margin: 0 auto; overflow: hidden; }
+
+header { background: white;  width:100%; height: 30px; }
+header p {font: 16px Arial, sans-serif; color: black; text-align: center; margin-top: 10px;}
+header form {text-align: right; margin-top: -20px;}
+header form input[type=text] {width: 60px; height:12px; font-size: 10px; margin-right: 5px; }
+header form input[type=password] {width: 60px; height:12px; font-size: 10px; margin-right: 5px;}
+header form input[type=submit] {width: 40px; height:20px; font-size: 10px; text-align: center; background-color: #B6F0F5; color: blue; margin-right: 10px;}
+header p.podpowiedz {font-size: 10px; color: blue; text-align: right; font-style: italic; margin-right: 10px;}
+header p.zlehaslo {font-size: 10px; color: red; text-align: right; font-style: italic; margin-right: 10px;}
+header p.czas {font-size: 14px; color: blue; text-align: right; font-style: italic; margin-right: 10px; margin-top: -20px;}
+header a {font-size: 15px; color: blue; text-align: right; margin-right: 10px; margin-top: -20px; display:block; float:right;}
+nav a {
+	width: 200px; 
+	height:30px; 
+	font-size: 20px; 
+	background-color: #B6F0F5;
+	border: 1px solid blue;
+	color: #1e3bf9; 
+	margin-top:10px;
+	margin-bottom:0px;	
+	display:block;
+	float:left;
+    text-align: center;
+    text-decoration:none;
+    padding-top: 10px;
+ }
+nav a:hover {
+	text-decoration: underline;
+	color: blue;
+}
+
+nav a.wybrany {
+	background-color: #1e3bf9;
+	color: #B6F0F5;
+}
+section { background: blue; background-image: url("tloo.jpg"); width:100%; height: 100%; float: left; text-align: center; padding-top: 20px; }
+section p {font: 16px Arial, sans-serif; color: white; text-align: center; margin-top: 10px;}
