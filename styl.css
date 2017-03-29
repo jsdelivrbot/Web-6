@@ -1,0 +1,15 @@
+/* wybranie wszystkiego to "*" */
+*{
+    maring: 0;
+    padding: 0
+}
+header{
+    background-color: cornflowerblue; text-align: center; padding: 10px
+}
+nav{background-color: aqua; color:chocolate; text-align: left}
+article{background-color: sandybrown; color: alicebluel; border: 1px solid black; border-radius: 12px 14px 16px 18px /20px 22px 24px 26px; margin-top: 20px; margin-bottom: 20px}
+p{font-size: 12px; font-family: cursive; color: black}
+h1{font-size: 28px; font-weight: 600; font-decoration: underline; text-align: center}
+footer{background-color: #333; text-align: center; padding: 5px; color: white; margin-top: 20px}
+h2 {font-size: 42px; margin: 0px}
+article img {margin-bottom: 10px}
