@@ -5,7 +5,7 @@
     box-sizing: border-box;     /* domyslne jest border=content, w ktorym paddinging itp sa DOLICZANE do witdh. W -box sa WLICZONE */
 }
 body{
-    background-color: #ddb;
+    background-color: #a6c6d0;
 }
 #wrapper{
     max-width: 1000px;
@@ -17,7 +17,7 @@ header img {
     display: block;
 }
 nav{
-    background-color: darkcyan;
+    background-color: #00a79d;
 }
 /* inline - tyle ile potrzebuje // block - 100% miejsca (mozna nadac wlasciwosci) */
 a.menu  {
@@ -29,10 +29,10 @@ a.menu  {
     text-align: center;
 }
 a.menu:hover{
-    background-color: crimson;
+    background-color: #b62d25;
 }
 .active{
-    background-color: crimson;
+    background-color: #b62d25;
 }
 article{
     margin-top: 30px;
@@ -44,14 +44,14 @@ article h1{
     text-align: center;
     margin: 0 20% 20px 20%;
     padding-bottom: 15px;
-    border-bottom: 5px solid crimson;
+    border-bottom: 5px solid #b62d25;
 }
 img.left{
     float: left;
     margin: 0 10px 10px 0;
     width: 25%;
-    border-radius: 50% 30%;
-    border: 1px solid black;
+    /*border-radius: 50% 30%; ZAOKRAGLENIE 
+    border: 1px solid black; */
 }
 article p{
     text-align: justify;
@@ -64,7 +64,7 @@ iframe{
 }
 footer{
     height: 40px;
-    background-color: darkcyan;
+    background-color: #00a79d;
     color: white;
     line-height: 40px;
     text-align: center;
