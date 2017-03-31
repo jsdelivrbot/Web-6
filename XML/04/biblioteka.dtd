@@ -1,0 +1,12 @@
+﻿<!ENTITY % info "tytul, autor, opis">
+<!ELEMENT biblioteka (ksiazka+, dzial+)>
+<!ELEMENT ksiazka   (data, %info;)>
+<!ATTLIST data 
+	id 
+	dzial 
+	oprawa (twarda | miekka) 
+	opcja? >
+<!ELEMENT tytul       (#PCDATA)>
+<!ELEMENT autor   (#PCDATA)>
+<!ELEMENT opis      (#PCDATA)>
+<!ELEMENT dzial	(#PCDATA)>

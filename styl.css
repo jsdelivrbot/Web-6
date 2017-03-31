@@ -1,7 +1,8 @@
 /* wybranie wszystkiego to "*" */
 *{
-    maring: 0;
-    padding: 0
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;     /* domyslne jest border=content, w ktorym paddinging itp sa DOLICZANE do witdh. W -box sa WLICZONE */
 }
 header{
     background-color: cornflowerblue; text-align: center; padding: 10px
@@ -13,3 +14,15 @@ h1{font-size: 28px; font-weight: 600; font-decoration: underline; text-align: ce
 footer{background-color: #333; text-align: center; padding: 5px; color: white; margin-top: 20px}
 h2 {font-size: 42px; margin: 0px}
 article img {margin-bottom: 10px}
+#container{
+    font-size: 50px;
+    text-align: center;
+}
+button{
+    background-color: cadetblue;
+    color: white;
+    padding: 100px 300px;
+    margin: 30px 50% 0 50%;
+    font-size: 30px;
+    border-radius: 15px;
+}

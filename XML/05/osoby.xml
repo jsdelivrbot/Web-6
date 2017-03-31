@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<osoby>
+    <osoba plec="M">
+        <imie>Stefan</imie>
+        <nazwisko>Kowalski</nazwisko>
+        <adres>
+            <miejscowosc>Sopot</miejscowosc>
+            <ulica>Dluga</ulica>
+            <nr-domu>45</nr-domu>
+        </adres>
+        <telefony>
+            <tel-stac>586673420</tel-stac>
+            <tel-kom>685743023</tel-kom>
+        </telefony>
+    </osoba>
+    <osoba plec="K">
+        <imie>Marianna</imie>
+        <nazwisko>Nowak</nazwisko>
+        <adres>
+            <miejscowosc>Gdańsk</miejscowosc>
+            <ulica>Słoneczna</ulica>
+            <nr-domu>75</nr-domu>
+        </adres>
+        <telefony>
+            <tel-stac>579473482</tel-stac>
+            <tel-kom>796857432</tel-kom>
+        </telefony>
+    </osoba>
+</osoby>
