@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="nazwatype">
+  <xs:restriction base="xs:string">
+    <xs:maxLength value="50"/>
+    <xs:minLength value="3"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="liczbatype">
+  <xs:restriction base="xs:positiveInteger">
+     <xs:maxInclusive value="10000"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="dectype">
+  <xs:restriction base="xs:decimal">
+    <xs:fractionDigits value="2"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="kodtype">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]{3}[-][A-Z][-]([C-Z0-9])*"/>
+    <xs:pattern value="[0-9]{3}[-][A-Z]{2}[-][A-Z0-9]{5,10}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="dataspozyciaType">
+  <xs:restriction base="xs:gYearMonth">
+    <xs:minInclusive value="2016-01"/>
+  </xs:restriction>
+
+</xs:simpleType>
+
+<xs:complexType name="cenatype">
+	<xs:simpleContent>
+		<xs:extension base="dectype">
+			<xs:attribute name="jednostka">
+			<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="sztuki"/>
+				<xs:enumeration value="kg"/>
+				<xs:enumeration value="dg"/>
+				<xs:enumeration value="g"/>
+			</xs:restriction>
+			</xs:simpleType>
+			</xs:attribute>
+		</xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+
+<xs:simpleType name="rodzajtype">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="bombonierka"/>
+    <xs:enumeration value="czekolada"/>
+    <xs:enumeration value="cukierki"/>
+    <xs:enumeration value="pozostałe"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="produktType">
+  <xs:sequence>
+    <xs:element name="nazwa" type="nazwatype"/>
+    <xs:element name="rodzaj" type="rodzajtype"/>
+    <xs:element name="liczba" type="liczbatype"/>
+    <xs:element name="cena" type="cenatype"/>
+    <xs:element name="kod" type="kodtype"/>
+    <xs:element name="data-spozycia" type="dataspozyciaType"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="czekoladaType">
+  <xs:sequence>
+    <xs:element name="produkt" type="produktType" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:element name="czekolada" type="czekoladaType"/>
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="kod">
+    <xs:restriction base="xs:string"/>
+</xs:simpleType>
+
+<xs:complexType name="grupa1">
+    <xs:choice>
+      <xs:element name="kod1" type="kod"/>
+      <xs:element name="kod2" type="kod"/>
+      <xs:element name="kod3" type="kod"/>
+    </xs:choice>
+</xs:complexType>
+
+<xs:complexType name="grupa2">
+    <xs:all>
+      <xs:element name="kod1" type="kod"/>
+      <xs:element name="kod2" type="kod"/>
+      <xs:element name="kod3" type="kod"/>
+    </xs:all>
+</xs:complexType>
+
+<xs:complexType name="grupa3">
+    <xs:sequence>
+        <xs:element name="kod1" type="kod"/>
+      <xs:choice>
+        <xs:element name="kod2" type="kod"/>
+        <xs:element name="kod3" type="kod"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+
+<xs:complexType name="grupa4">
+    <xs:sequence>
+      <xs:element name="kod1" type="xs:string" minOccurs="2" maxOccurs="unbounded"/>
+      <xs:element name="kod2" type="xs:string" maxOccurs="4"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:group name="grupa5group">
+	<xs:choice>
+		<xs:element name="kod1" type="kod"/>
+		<xs:element name="kod2" type="kod"/>
+		<xs:element name="kod3" type="kod"/>
+	</xs:choice>
+</xs:group>
+
+<xs:complexType name="grupa5">
+	<xs:sequence>
+		<xs:group ref="grupa5group" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="kodyType">
+  <xs:sequence>
+    <xs:element name="grupa1" type="grupa1" maxOccurs="unbounded"/>
+    <xs:element name="grupa2" type="grupa2" maxOccurs="unbounded"/>
+    <xs:element name="grupa3" type="grupa3" maxOccurs="unbounded"/>
+    <xs:element name="grupa4" type="grupa4" maxOccurs="unbounded"/>
+    <xs:element name="grupa5" type="grupa5" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:element name="kody" type="kodyType"/>
+</xs:schema>
