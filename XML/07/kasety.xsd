@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.kasety.org"
+             xmlns="http://www.kasety.org" 
+           elementFormDefault="unqualified">
+    
+<xs:simpleType name="stringType">
+  <xs:restriction base="xs:string"/>
+</xs:simpleType>
+    
+    <xs:simpleType name="typType">
+  <xs:restriction base="xs:string">
+				<xs:enumeration value="scifi"/>
+				<xs:enumeration value="wojenny"/>
+				<xs:enumeration value="dokumentarny"/>
+  </xs:restriction>
+</xs:simpleType>
+    
+    <xs:complexType name="kasetaType">
+  <xs:sequence>
+    <xs:element name="tytul" type="stringType"/>
+    <xs:element name="id" type="stringType"/>
+    <xs:element name="typ" type="typType"/>
+  </xs:sequence>
+</xs:complexType>
+    
+        <xs:complexType name="kasetyType">
+  <xs:sequence>
+    <xs:element name="kaseta" type="kasetaType" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+        
+</xs:schema>

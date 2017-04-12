@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="stringtype">
+  <xs:restriction base="xs:string"/>
+</xs:simpleType>
+
+<xs:simpleType name="datetype">
+  <xs:restriction base="xs:date"/>
+</xs:simpleType>
+
+<xs:complexType name="kasetatype">
+  <xs:sequence>
+    <xs:element name="tytul" type="stringtype"/>
+    <xs:element name="id" type="stringtype"/>
+    <xs:element name="typ" type="stringtype"/>
+  </xs:sequence>
+</xs:complexType>
+
+
+
+<xs:complexType name="wyptype">
+  <xs:sequence>
+    <xs:element name="dataWypozyczenia" type="datetype"/>
+    <xs:element name="dataZwrotu" type="datetype"/>
+  </xs:sequence>
+    <xs:attribute name="idKasety" type="stringtype" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="wyp2type">
+	<xs:sequence>
+  <xs:element name="wypozyczenie" type="wyptype" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="kasetytype">
+	<xs:sequence>
+  <xs:element name="kaseta" type="kasetatype" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="wypozyczalniatype">
+  <xs:sequence>
+    <xs:element name="kasety" type="kasetytype"/>
+    <xs:element name="wypozyczenia" type="wyp2type"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:element name="wypozyczalnia" type="wypozyczalniatype">
+<xs:key name="idref">
+	<xs:selector xpath="kasety/kaseta"/>
+	<xs:field xpath="id"/>
+</xs:key>	
+
+<xs:keyref name="wypozyczref" refer="idref">
+	<xs:selector xpath="wypozyczenia/wypozyczenie"/>
+	<xs:field xpath="@idKasety"/>
+</xs:keyref>
+</xs:element>
+
+
+
+</xs:schema>

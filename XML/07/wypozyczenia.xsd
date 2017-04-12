@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.wypozyczenia.org"
+            xmlns="http://www.wypozyczenia.org" 
+           elementFormDefault="unqualified">
+<xs:simpleType name="dataType">
+  <xs:restriction base="xs:date"/>
+</xs:simpleType>
+    
+    <xs:simpleType name="stringType">
+  <xs:restriction base="xs:string"/>
+</xs:simpleType>
+    
+    <xs:complexType name="wypozyczenieType">
+        <xs:sequence>
+            <xs:element name="dataWypozyczenia" type="dataType"/>
+            <xs:element name="dataZwrotu" type="dataType"/>
+        </xs:sequence>
+        <xs:attribute name="idKasety" type="stringType" use="required"/>
+</xs:complexType>
+    
+    <xs:complexType name="wypozyczeniaTypa">
+  <xs:sequence>
+    <xs:element name="wypozyczenie" type="wypozyczenieType" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+    </xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.wypozyczalnia.org"
+            xmlns="http://www.wypozyczalnia.org"
+            elementFormDefault="unqualified"
+            xmlns:kas="http://www.kasety.org"
+            xmlns:wyp="http://www.wypozyczenia.org">
+			<xs:import namespace="http://www.kasety.org"
+                schemaLocation="kasety.xsd"/>
+    <xs:import namespace="http://www.wypozyczenia.org"
+                schemaLocation="wypozyczenia.xsd"/>
+
+<xs:complexType name="wypozyczalniaType">
+  <xs:sequence>
+    <xs:element name="kasety" type="kas:kasetyType" maxOccurs="unbounded"/>
+     <xs:element name="wypozyczenia" type="wyp:wypozyczeniaTypa" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+    
+    <xs:element name="wypozyczalnia" type="wypozyczalniaType"/>
+    
+    </xs:schema>
