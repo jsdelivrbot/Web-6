@@ -1,0 +1,94 @@
+wybitni 
+{ 
+	top: 25%;
+	left: 12%;
+	position: absolute;
+	background: #66CDAA; 
+	border: 4px dotted blue;
+	width: 75%;
+	display: flex; 
+	justify-content: center;
+}
+sportowcy,wydarzenia
+{ 
+	border: 1px solid black;
+	border-width: medium;
+	display: table;
+	margin: 10px;
+	padding: 10px;
+	background: #B0C4DE;
+	
+}
+sportowiec,wydarzenie
+{
+	display: block;
+	border: 1px solid blue;
+	background: #008B8B;
+	padding: 10px;
+	margin: 4px;
+	height: auto;
+	width: 200px;
+}
+sportowiec:hover 
+{ 
+    background-color: yellow;
+}
+wydarzenie:hover 
+{ 
+    background-color: green;
+}
+
+sportowiec nazwisko
+{
+	font-weight: bold; 
+}
+nazwa
+{
+	font-weight: bold; 
+}
+miasto::before
+{
+	content: "\a ";
+    white-space: pre;
+}
+ulica::before
+{
+	content: "\a ";
+    white-space: pre;
+}
+nr_telefonu::before
+{
+	content: "\aTelefon: ";
+    white-space: pre;
+}
+pesel::before
+{
+	content: "\aPesel: ";
+    white-space: pre;
+}
+data_urodzenia::before
+{
+	content: "\a Data ur: ";
+    white-space: pre;
+}
+zwyciezca::before
+{
+	content: "\aZwyciezca: ";
+    white-space: pre;
+    font-weight: lighter;
+}
+pula_nagrod::before
+{
+	content: "\aNagroda: ";
+    white-space: pre;
+}
+pula_nagrod::after
+{
+	content: " zł";
+    white-space: pre;
+}
+data::before
+{
+	content: "\a";
+    white-space: pre;
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="sport.css" ?>
+<wybitni>
+<sportowcy>
+    <sportowiec plec="M">
+        <imie>Waldemar</imie>
+        <nazwisko>Kiepski</nazwisko>
+        <adres>
+            <miasto>Dobre Miasto</miasto>
+            <ulica>Wybitna</ulica>
+            <nr_domu>100</nr_domu>
+            <kod_pocztowy>57-405</kod_pocztowy>
+        </adres>
+        <nr_telefonu>475495231</nr_telefonu>
+        <pesel>34813923043</pesel>
+        <data_urodzenia>1994-09-24</data_urodzenia>
+    </sportowiec>
+    <sportowiec plec="K">
+        <imie>Marta</imie>
+        <nazwisko>Nowak</nazwisko>
+        <adres>
+            <miasto>Kraków</miasto>
+            <ulica>Cicha</ulica>
+            <nr_domu>4</nr_domu>
+            <kod_pocztowy>85-314</kod_pocztowy>
+        </adres>
+        <nr_telefonu>384932041</nr_telefonu>
+        <pesel>96857410543</pesel>
+        <data_urodzenia>1997-10-03</data_urodzenia>
+    </sportowiec>
+    <sportowiec plec="M">
+        <imie>Stefan</imie>
+        <nazwisko>Stary</nazwisko>
+        <adres>
+            <miasto>Sopot</miasto>
+            <ulica>Leśna</ulica>
+            <nr_domu>3</nr_domu>
+            <kod_pocztowy>80-584</kod_pocztowy>
+        </adres>
+        <nr_telefonu>605948593</nr_telefonu>
+        <pesel>98574848593</pesel>
+        <data_urodzenia>1998-11-11</data_urodzenia>
+    </sportowiec>
+</sportowcy>
+
+<wydarzenia>
+    <wydarzenie>
+        <nazwa>Turniej Piłkarski Sopot</nazwa>
+        <adres>
+            <miasto>Sopot</miasto>
+            <ulica>Sportowa</ulica>
+            <nr_domu>40</nr_domu>
+            <kod_pocztowy>80-111</kod_pocztowy>
+        </adres>
+        <data>2016-06-06</data>
+        <godzina>09:00:00</godzina>
+        <pula_nagrod>500.50</pula_nagrod>
+        <zwyciezca>
+            <imie>Stefan</imie>
+            <nazwisko>Stary</nazwisko>
+        </zwyciezca>
+    </wydarzenie>
+    <wydarzenie>
+        <nazwa>Olimpiada Lekkoatletyczna</nazwa>
+        <adres>
+            <miasto>Warszawa</miasto>
+            <ulica>Nowa</ulica>
+            <nr_domu>15</nr_domu>
+            <kod_pocztowy>34-333</kod_pocztowy>
+        </adres>
+        <data>2017-01-15</data>
+        <godzina>08:00:00</godzina>
+        <pula_nagrod>1500.00</pula_nagrod>
+        <zwyciezca>
+            <imie>Marta</imie>
+            <nazwisko>Nowak</nazwisko>
+        </zwyciezca>
+    </wydarzenie>
+    <wydarzenie>
+        <nazwa>Turniej Koszykówki</nazwa>
+        <adres>
+            <miasto>Bydgoszcz</miasto>
+            <ulica>Nocna</ulica>
+            <nr_domu>11</nr_domu>
+            <kod_pocztowy>12-121</kod_pocztowy>
+        </adres>
+        <data>2015-10-21</data>
+        <godzina>10:00:00</godzina>
+        <pula_nagrod>700.00</pula_nagrod>
+        <zwyciezca>
+            <imie>Marta</imie>
+            <nazwisko>Nowak</nazwisko>
+        </zwyciezca>
+    </wydarzenie>
+</wydarzenia>
+</wybitni>

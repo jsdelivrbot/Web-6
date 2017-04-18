@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sportowcy>
+    <sportowiec plec="M">
+        <imie>Waldemar</imie>
+        <nazwisko>Kiepski</nazwisko>
+        <adres>
+            <miasto>Dobre Miasto</miasto>
+            <ulica>Wybitna</ulica>
+            <nr_domu>100</nr_domu>
+            <kod_pocztowy>57-405</kod_pocztowy>
+        </adres>
+        <nr_telefonu>475495231</nr_telefonu>
+        <pesel>34813923043</pesel>
+        <data_urodzenia>1994-09-24</data_urodzenia>
+    </sportowiec>
+    <sportowiec plec="K">
+        <imie>Marta</imie>
+        <nazwisko>Nowak</nazwisko>
+        <adres>
+            <miasto>Kraków</miasto>
+            <ulica>Cicha</ulica>
+            <nr_domu>4</nr_domu>
+            <kod_pocztowy>85-314</kod_pocztowy>
+        </adres>
+        <nr_telefonu>384932041</nr_telefonu>
+        <pesel>96857410543</pesel>
+        <data_urodzenia>1997-10-03</data_urodzenia>
+    </sportowiec>
+    <sportowiec plec="M">
+        <imie>Stefan</imie>
+        <nazwisko>Stary</nazwisko>
+        <adres>
+            <miasto>Sopot</miasto>
+            <ulica>Leśna</ulica>
+            <nr_domu>3</nr_domu>
+            <kod_pocztowy>80-584</kod_pocztowy>
+        </adres>
+        <nr_telefonu>605948593</nr_telefonu>
+        <pesel>98574848593</pesel>
+        <data_urodzenia>1998-11-11</data_urodzenia>
+    </sportowiec>
+</sportowcy>

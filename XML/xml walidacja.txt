@@ -1,0 +1,2 @@
+xmllint --schema schema.xsd file.xml
+ --noout // bez wyswietlania pliku

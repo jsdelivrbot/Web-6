@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:simpleType name="stringType">
+  <xs:restriction base="xs:string"/>
+</xs:simpleType>
+
+    <xs:simpleType name="intType">
+  <xs:restriction base="xs:integer"/>
+</xs:simpleType>
+    
+<xs:simpleType name="dateType">
+  <xs:restriction base="xs:date"/>
+</xs:simpleType>
+    
+    <xs:simpleType name="timeType">
+  <xs:restriction base="xs:time"/>
+</xs:simpleType>
+    
+    <xs:simpleType name="kodType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]{2}[-][0-9]{3}"/>
+  </xs:restriction>
+</xs:simpleType>
+    
+    <xs:simpleType name="decType">
+  <xs:restriction base="xs:decimal">
+    <xs:fractionDigits value="2"/>
+  </xs:restriction>
+</xs:simpleType>
+    
+    <xs:simpleType name="plecType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="M|K"/>
+  </xs:restriction>
+</xs:simpleType>
+    
+<xs:complexType name="adresType">
+  <xs:sequence>
+    <xs:element name="miasto" type="stringType"/>
+    <xs:element name="ulica" type="stringType"/>
+    <xs:element name="nr_domu" type="intType"/>
+    <xs:element name="kod_pocztowy" type="kodType"/>
+  </xs:sequence>
+</xs:complexType>
+    
+    <xs:complexType name="zwyciezcaType">
+  <xs:sequence>
+    <xs:element name="imie" type="stringType"/>
+      <xs:element name="nazwisko" type="stringType"/>
+  </xs:sequence>
+</xs:complexType>
+    
+<xs:complexType name="sportowiecType">
+  <xs:sequence>
+    <xs:element name="imie" type="stringType"/>
+    <xs:element name="nazwisko" type="stringType"/>
+      <xs:element name="adres" type="adresType"/>
+    <xs:element name="nr_telefonu" type="stringType"/>
+    <xs:element name="pesel" type="stringType"/>
+    <xs:element name="data_urodzenia" type="dateType"/>
+  </xs:sequence>
+    <xs:attribute name="plec" type="plecType" use="required"/>
+</xs:complexType>
+    
+    
+    <xs:complexType name="wydarzenieType">
+  <xs:sequence>
+    <xs:element name="nazwa" type="stringType"/>
+      <xs:element name="adres" type="adresType"/>
+    <xs:element name="data" type="dateType"/>
+    <xs:element name="godzina" type="timeType"/>
+    <xs:element name="pula_nagrod" type="decType"/>
+      <xs:element name="zwyciezca" type="zwyciezcaType"/>
+  </xs:sequence>
+</xs:complexType>
+    
+    <xs:complexType name="sportowcyType">
+  <xs:sequence>
+    <xs:element name="sportowiec" type="sportowiecType" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+    <xs:complexType name="wydarzeniaType">
+  <xs:sequence>
+    <xs:element name="wydarzenie" type="wydarzenieType" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+    
+    <xs:complexType name="wybitniType">
+  <xs:sequence>
+    <xs:element name="sportowcy" type="sportowcyType"/>
+    <xs:element name="wydarzenia" type="wydarzeniaType"/>
+  </xs:sequence>
+</xs:complexType>
+    
+    
+<xs:element name="wybitni" type="wybitniType">
+    <xs:key name="imieRef">
+	<xs:selector xpath="sportowcy/sportowiec"/>
+	<xs:field xpath="imie"/>
+    <xs:field xpath="nazwisko"/>
+</xs:key>	
+    
+<xs:keyref name="zwyciezcaRef" refer="imieRef">
+	<xs:selector xpath="wydarzenia/wydarzenie/zwyciezca"/>
+	<xs:field xpath="imie"/>
+    <xs:field xpath="nazwisko"/>
+</xs:keyref>
+    
+    </xs:element>
+        
+</xs:schema>
