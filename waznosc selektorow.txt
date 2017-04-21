@@ -1,0 +1,7 @@
+# 3 - ma pirorytet nawet jesli by bylo #p{green} a potem p{red}  [troche jak medale na podium]
+. 2
+div 1
+
+Mozna sumowac na przyklad p #cos to ma waznosc 4
+czyli potem p{red} nie zadziala dla elementu cos bo ma waznosc 1
+TYLKO jak jest taka sama waznosc to liczy sie kolejnosc pisania

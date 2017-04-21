@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kółko</title>
+    <style>
+    
+        body{background-color: aliceblue;}
+        
+    .circle{
+            margin: 0 auto;
+            width: 30vh; /* 30% wysokosci okna przegladarki */
+            height: 30vh;
+            background-color: white;
+            border-radius: 50%;
+            border-bottom: 100px solid blue;
+            border-left: 100px solid orange;
+            border-right: 100px solid black;
+            border-top: 100px solid purple;
+            transition: transform 7s ease, border 3s ease-in-out, background-color 7s ease; /* ease to przyspieszenie do docelowego i spowolnienie pod koniec */
+        }
+        
+        .active{ /* punkt koncowy */
+            transform: rotate(3600deg); /* 10 obrotow (360stopni raz 10) */
+            border-bottom: 100px solid green;
+            border-left: 100px solid brown;
+            border-right: 100px solid crimson;
+            border-top: 100px solid pink;
+            background-color: grey;
+        }
+        
+        button{
+            background-color: deepskyblue;
+            color: white;
+            width: 200px;
+            height: 30px;
+            display: block;
+            margin: 20px auto;
+            border: none;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div class="circle">
+        
+    </div>
+    <button id="button active">Zakręć</button>
+    <!-- jquerry z google cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('button').on('click', function(){
+            $('.circle').toggleClass('active');
+        })
+    </script>
+</body>
+</html>
