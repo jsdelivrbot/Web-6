@@ -14,7 +14,7 @@ if(!isset($_SESSION["login"])) //Nie mozna zobaczyc strony przez wpisanie w adre
   </head>
   <body>
     <header>
-      <p><b>Strona projektu</b></p><p class="podpowiedz">
+      <h1>Strona projektu</h1><p class="podpowiedz">
 			
 <?php 
 echo "Witaj " . $_SESSION["login"] . "<br>";

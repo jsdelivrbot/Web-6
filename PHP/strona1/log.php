@@ -27,7 +27,7 @@ if (isset($login) && isset($pass))
 
 
     <header>
-      <p><b>Strona projektu</b></p>
+      <h1>Strona projektu</h1>
 	  <p class="podpowiedz">Logowanie</p><br><br>
      <form class="spr"  action="log.php" method="POST">Login: 
       <input name="login" type="text" />Hasło: <input name="password" type="password"  />
