@@ -1,0 +1,211 @@
+*{
+    margin: 0; 
+    padding: 0; 
+    font-family: Roboto, arial;     /*arial jakby sie nie wczytalo roboto */
+    box-sizing: border-box;     /* domyslne jest border=content, w ktorym paddinging itp sa DOLICZANE do witdh. W -box sa WLICZONE */
+}
+body{
+    margin: 0 25 0 25;
+    background-color: #a6c6d0;
+    /*http://www.cssmatic.com */
+}
+#wrapper{
+    max-width: 1000px;
+    margin: 0 auto;     /* GORA PRAWO DOL LEWO (clockwise) */  /* jesli sa podane 0 auto TO jest to podwojone, czyli 0 auto 0 auto */
+    background-color: white;
+}
+header img {
+    width: 100%;
+    display: block;
+}
+nav{
+    background-color: #00a79d;
+}
+/* inline - tyle ile potrzebuje // block - 100% miejsca (mozna nadac wlasciwosci) */
+a.menu{
+    display: inline-block; /* inline=block to nie uzwac enterow, bo sie popsuje */
+    width: 33.333%;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: background-color 0.4s;
+    transition: background-color 0.4s;
+    font-size: 16px;
+}
+a.menu:hover{
+    background-color: #b62d25;
+    cursor: pointer;
+}
+.zaint a, h2 a{
+    text-decoration: none;
+    color: royalblue;
+    font-weight: bold;
+}
+.active{
+    background-color: #b62d25;
+}
+article{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+h2{
+    font-size: 23px;
+    text-align: center;
+    position: relative;
+}
+#kontakt h2
+{
+    color: #333;
+}
+.naglowek
+{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 20% 20px 20%;
+    padding-bottom: 15px;
+    border-bottom: 5px solid dodgerblue;
+    font-weight: bold;
+    display: block;
+}
+.naglowek.przykl
+{
+    font-size: 35px;
+    margin: 10px 15% 20px 15%;
+    border-bottom: 5px solid limegreen;
+}
+.naglowek.omnie
+{
+    border-bottom: 5px solid #b62d25;
+}
+ul{
+    margin: 0 40px;
+}
+img.left{
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 25%;
+    border-radius: 50% 30%; ZAOKRAGLENIE 
+    border: 1px solid black;
+}
+img.center{
+    margin: 5px 0 10px 0;
+    width: 35%;
+    border: 1px solid grey;
+}
+.center.wieksze{
+    width: 79%;
+}
+p{
+    text-align: justify;
+    line-height: 25px;
+    font-size: 18px;
+    padding: 5px 0;
+}
+#kontakt p{
+    font-weight: bold;
+    text-align: center;
+}
+#przyklady p{
+    text-align: center;
+    position: relative;
+}
+.zaint p{
+    text-align: center;
+}
+footer p{
+    text-align: right;
+    margin: 0 15px;
+    font-size: 10px;
+    font-family: cursive;
+}
+iframe{
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid grey;
+}
+footer{
+    height: 40px;
+    background-color: #00a79d;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 5px;
+}
+.git{
+    position: relative;
+    margin: 20px auto;
+    background-color: mediumblue; 
+    color: white; 
+    border: none;
+    padding: 16px 5%;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 14px 72px -7px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 14px 72px -7px rgba(0,0,0,0.57);
+box-shadow: 0px 14px 72px -7px rgba(0,0,0,0.57);
+}
+.git:hover {
+    background-color: skyblue;
+    color: #333;
+}
+.circle{
+    position: absolute;
+    margin: 0 auto 0 15px;
+        width: 10vh; /* 30% wysokosci okna przegladarki */
+        height: 10vh;
+            background-color: white;
+            border-radius: 50%;
+            border-bottom: 50px solid darkblue;
+            border-left: 50px solid orange;
+            border-right: 50px solid yellow;
+            border-top: 50px solid green;
+            -webkit-transition: transform 7s ease, border 3s ease-in-out;
+    transition: transform 7s ease, border 3s ease-in-out; /* ease to przyspieszenie do docelowego i spowolnienie pod koniec */
+}
+.circle:hover{ /* punkt koncowy */
+            transform: rotate(3600deg); /* 10 obrotow (360stopni raz 10) */
+            border-bottom: 75px solid red;
+            border-left: 75px solid #333;
+            border-right: 75px solid purple;
+            border-top: 75px solid #30D5C8;
+}
+@media (max-width:450px)
+{
+    header img{
+        height: 250px;
+    }
+}
+@media (max-width:348px)
+{
+    a.menu{
+        font-size: 12px;
+    }
+    header img{
+        height: 225px;
+    }
+}
+@media (max-width:320px)
+{
+    a.menu{
+        font-size: 9px;
+    }
+    header img{
+        height: 200px;
+    }
+}
+@media (max-width:300px)
+{
+    a.menu{
+        font-size: 7px;
+    }
+    header img{
+        height: 190px;
+    }
+}

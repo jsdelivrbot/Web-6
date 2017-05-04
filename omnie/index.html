@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styl.css">
+    <!-- czcionka z google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&subset=latin-ext" rel="stylesheet">
+    <title>O Mnie</title>
+    <!-- ikonka -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <img alt="city" src="head.jpg" height="300">
+        </header>
+        
+        <nav> <!-- musi byc w 1 linijsce bo inaczej sie psuje inline-block (enter jest traktowany jako spacja)-->
+            <a class="menu active"  onclick="openTab('omnie')">O mnie</a><a class="menu"  onclick="openTab('przyklady')">Przykłady</a><a class="menu"  onclick="openTab('kontakt')">Kontakt</a> 
+        </nav>
+        
+        <div id="omnie" class="tab">
+            <article>
+                <div class="naglowek omnie">Arkadiusz Klein</div>
+                <p><img alt="zdjecie" class="left" src="cv.jpg">Jestem 21-letnim studentem informatyki na Uniwersytecie Gdańskim na 4 semestrze.</p>
+                <p>Szukam praktyk zawodowych i myślę, że najbardziej chciałbym zajmować się tworzeniem stron internetowych.</p>
+                <p>Obecnie jestem gotowy zacząć pracować od zaraz poświęcając wolny czas po zajęciach oraz w weekendy (studiuję dziennie).<br>
+                    Jestem też zainteresowany ofertami praktyk w czasie wakacji.</p>
+                <p>Na studiach poznałem takie języki programowania jak: C, Java, SQL, HTML, XML.<br>
+                Dodatkowo w podstawowym zakresie: CSS, PHP, Bash, Assembler.<br>
+                Obecnie w wolnych chwilach staram się nauczyć więcej CSS'a oraz JavaScript.</p>
+                <p>Przykłady moich prac można znaleźć w zakładce Przykłady.</p><br>
+                <div class="naglowek omnie">Zainteresowania</div>
+                <div class="zaint">
+                    <p>Interesuję się głównie programowaniem oraz budową komputerów. Pierwszą styczność z jakimś kodem miałem
+                    w gimnazjum na lekcji informatyki, gdzie napisałem bardzo prostą stronę internetową. Potem
+                    zacząłem szukać więcej materiałów, z których mógłbym się nauczyć więcej i z tego powstała
+                    moja pierwsza, bardziej rozbudowana strona na projekt szkolny dotyczący Gdyni.
+                    Stronę tą następnie lekko przerobiłem na studiach, jednak wciąż nie spełnia obecnych
+                    standardów. Jest ona dostępna <a href="http://sigma.ug.edu.pl/~aklein/Gdynia/index.html" target="_blank">TUTAJ</a>.<br>
+                    Niedawno po dodatkowej styczności z HTML i CSS postanowiłem nauczyć się tworzenia stron od nowa, zgodnie już ze standardami.</p>
+                    <p>Kolejną styczność z kodem miałem w trakcie liceum. Pierw na weekendowym kursie C++, a potem na zajęciach informatyki też C++.</p>
+                    <h3>Dodatkowo interesowałem się obróbką zdjęć oraz wideo. Mam dzięki temu podstawową znajomość programów:</h3>
+                    <ul>
+                        <li>Adobe Photoshop</li>
+                        <li>GIMP</li>
+                        <li>Sony Vegas</li>
+                        <li>Adobe After Effects</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+        <div id="przyklady" class="tab" style="display:none">
+            <div class="naglowek przykl">Przykłady moich prac</div>
+            <div class="circle left"></div>
+            <form style="display: inline" action="https://github.com/aklein13/Projekty" target="_blank" method="get">
+            <button class="git">GITHUB</button>
+            </form>
+            
+            <h2>java_spring_ABC</h2>
+            <p>Zawiera prostą grę wykorzystującą interfejs graficzny spring. Użytkownik ma możliwość: zapisu i odczytu stanu, cofania, uzyskania pomocy.<br>
+            <img alt="abc screen" class="center" src="abc.jpg"></p>
+            <h2>java_konto</h2>
+            <p>Interfejs "konta" bankowego pozwalający na odczyt, zapis, wpłaty, wypłaty oraz zawiera historię operacji.<br>
+            <img alt="konto screen" class="center" src="konto.jpg"></p>
+            <h2>java_jdbc </h2>
+            <p>Wykorzystanie jdbc do czytania i modyfikacji bazy danych w sqlite.</p>
+            <h2>studenci.java </h2>
+            <p>Wykaz studentów i ich ocen. Sortowanie wg średniej ocen.<br>
+                <img alt="studenci screen" class="center" src="stud.jpg"></p>
+            <h2> port_morski.sql </h2>
+            <p>Relacyjna baza danych portu morskiego z przykładowym triggerem.</p>
+            <h2>C_postgres </h2>
+            <p>Program do dodawania do bazy danych psql danych z pliku .csv. Dodatkowo dla wywołania ./1 nazwatabel1 ... strona.html zostaną wydrukowane z bazy danych tabele do pliku HTML. Wymaga zainstalowanego postgres lokalnie (lub zdalnie po modyfikacji adresu ip w kodzie). Do kompilacji można użyć komendy make 1 .<br>
+                <img alt="psql screen" class="center wieksze" src="psql.jpg"></p>
+            <h2>C_quick_radix</h2>
+            <p>Wykorzystanie algorytmu radix oraz quicksort do posortowania pliku naz.txt oraz porównaniu czasu pracy 2 algorytmów.<br>
+            <img alt="radix screen" class="center" src="radix.jpg"></p>
+            <h2>omnie</h2>
+            <p><i>Ta strona</i></p>
+            <div class="naglowek przykl">Prosta strona z podstawami PHP</div>
+            <iframe height="315" src="http://sigma.ug.edu.pl/~aklein/log.php"></iframe>
+            <h2>Wypożyczalnia samochodów w <a href="https://apex.oracle.com/pls/apex/f?p=42078:LOGIN_DESKTOP:110732584314774:::::" target="_blank">APEX 5</a></h2>
+            <p>System umożliwiający logowanie się z różnych ról (pracownik, klient) i zarządzanie wypożyczalnią.<br>Login i hasło administratora
+            (największe uprawnienia) to: admin admin .<br>
+            <img alt="apex screen" class="center wieksze" src="apex.jpg"></p>
+            
+        </div>
+        <!-- style="display:none" -->
+        <div id="kontakt" class="tab" style="display:none">
+            <article>
+                <div class="naglowek">Mail:</div>
+                <h2>arek.klein@gmail.com</h2><br><br>
+                <div class="naglowek">Telefon:</div>
+                <h2>606 204 882</h2>
+            </article>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+        //ukrywanie i odkrywanie div class tab oraz menu active
+        function openTab(tabName) 
+        {
+            var i;
+            var x = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) 
+                x[i].style.display = "none";
+            document.getElementById(tabName).style.display = "block";  
+            
+        }
+        $('.menu').on('click', function()
+        {
+            $('.menu').removeClass('active');
+            $(this).toggleClass('active');
+        })
+        
+        </script> <!-- google analitics -->
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98292433-1', 'auto');
+  ga('send', 'pageview');
+</script>
+        <footer>
+            <p>Copyright©2017 Arkadiusz Klein</p>
+        </footer>   
+    </div>  
+</body>
+</html>
