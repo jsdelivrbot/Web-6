@@ -36,11 +36,15 @@ a.menu{
 a.menu:hover{
     background-color: #b62d25;
     cursor: pointer;
+    text-decoration: underline;
 }
-.zaint a, h2 a{
+.zaint a, h2 a, #yii{
     text-decoration: none;
     color: royalblue;
     font-weight: bold;
+}
+.zaint a:hover, h2 a:hover, #yii:hover{
+    text-decoration: underline;
 }
 .active{
     background-color: #b62d25;
@@ -95,7 +99,7 @@ img.center{
     border: 1px solid grey;
 }
 .center.wieksze{
-    width: 79%;
+    width: 80%;
 }
 p{
     text-align: justify;

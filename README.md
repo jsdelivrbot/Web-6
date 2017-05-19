@@ -1,3 +1,3 @@
 ## Learning HTML and CSS from internet
-### 1 is the best thing I've made so far
+### omnie is website about me, in polish
 ### Gdynia OLD is a very old project from middle school
