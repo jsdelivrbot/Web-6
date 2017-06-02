@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+    <title>DOM + JS + XML</title>
+        <style>button{margin: 5px; background-color: green; color: white;}</style>
+    </head>
+<body onLoad="loadXMLDoc()">
+<table id="tabelka" border="1">
+<tr><th>Imie</th><th>Nazwisko</th></tr>
+</table>
+<script>
+    
+function loadXMLDoc() 
+    {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() 
+  {
+    if (this.readyState == 4 && this.status == 200) 
+    {
+      czytaj(this);
+    }
+  };
+  xmlhttp.open("GET", "wybitni.xml" , true);
+  xmlhttp.send();
+}
+var osoby = [];
+function czytaj(xml) 
+    {
+  var x,y, i, xmlDoc, table,j,win,adres,jest,wygrany;
+        
+  xmlDoc = xml.responseXML;
+  x = xmlDoc.getElementsByTagName("sportowiec");
+        y=xmlDoc.getElementsByTagName("wydarzenie");
+   /* var c = xmlDoc.childNodes;
+    var txt = "";
+    var i;
+    for (i = 0; i < c.length; i++) {
+        txt = txt + c[i].nodeName + "<br>";
+    }*/
+        win="";
+        adres="";
+        jest=0;
+  for (i = 0; i < x.length; i++) 
+  {
+      adres += "ul. " + x[i].getElementsByTagName("ulica")[0].childNodes[0].nodeValue +" "+
+        x[i].getElementsByTagName("nr_domu")[0].childNodes[0].nodeValue+
+        " "+x[i].getElementsByTagName("miasto")[0].childNodes[0].nodeValue + " " +
+        x[i].getElementsByTagName("kod_pocztowy")[0].childNodes[0].nodeValue;
+      for(j=0; j<y.length; j++)
+          {
+              if(x[i].getElementsByTagName("imie")[0].childNodes[0].nodeValue == y[j].getElementsByTagName("imie")[0].childNodes[0].nodeValue)
+                  {
+                      win += "<li>" + y[j].getElementsByTagName("nazwa")[0].childNodes[0].nodeValue + "</li>";
+                      jest++;
+                  }
+          }
+      osoby.push({imie:x[i].getElementsByTagName("imie")[0].childNodes[0].nodeValue, 
+                  nazwisko:x[i].getElementsByTagName("nazwisko")[0].childNodes[0].nodeValue,
+                  adres:adres,
+                  nr_tel:x[i].getElementsByTagName("nr_telefonu")[0].childNodes[0].nodeValue,
+                  wiek:Number(x[i].getElementsByTagName("wiek")[0].childNodes[0].nodeValue),
+                  pesel:x[i].getElementsByTagName("pesel")[0].childNodes[0].nodeValue,
+                  zwyciezca:win,
+                  ile_win:jest});
+      jest=0;
+      adres="";
+      win="";
+  }
+        wyswietl();
+}
+    function sortuj_wiek_ros() 
+    {
+    osoby.sort(function(a, b){return a.wiek - b.wiek});
+    wyswietl();
+}
+    function sortuj_wiek_mal() 
+    {
+    osoby.sort(function(a, b){return b.wiek - a.wiek});
+    wyswietl();
+}
+    function sortuj_nazwiska() 
+    {
+    osoby.sort(function(a, b){
+        var x = a.nazwisko.toLowerCase();
+        var y = b.nazwisko.toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+    });
+    wyswietl();
+}
+     function sortuj_iloscZwyciestw() 
+    {
+    osoby.sort(function(a, b){return b.ile_win - a.ile_win});
+    wyswietl();
+}
+    function dodaj_osobe(xml) 
+    {
+        var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+    if (this.readyState == 4 && this.status == 200) 
+    {
+        xml=this;
+      var x, cloneNode, xmlDoc;
+        xmlDoc = xml.responseXML;
+        x = xmlDoc.getElementsByTagName('sportowiec')[0];
+        cloneNode = x.cloneNode(true);
+        cloneNode.getElementsByTagName("imie")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[0].value;
+        cloneNode.getElementsByTagName("nazwisko")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[1].value;
+        cloneNode.getElementsByTagName("miasto")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[4].value;
+        cloneNode.getElementsByTagName("ulica")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[2].value;
+        cloneNode.getElementsByTagName("nr_domu")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[3].value;
+        cloneNode.getElementsByTagName("kod_pocztowy")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[5].value;
+        cloneNode.getElementsByTagName("nr_telefonu")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[6].value;
+        cloneNode.getElementsByTagName("pesel")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[8].value;
+        cloneNode.getElementsByTagName("wiek")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[7].value;
+        console.log(cloneNode);
+        xmlDoc.documentElement.appendChild(cloneNode);
+        
+        loadXMLDoc();//yyy rak
+    }
+  };
+  xmlhttp.open("GET", "wybitni.xml" , true);
+  xmlhttp.send();
+        
+    }
+    
+    function wyswietl()
+    {
+        var i,table;
+        table = "<tr><th>Imie</th><th>Nazwisko</th><th>Adres</th><th>Numer telefonu</th><th>Wiek</th><th>Pesel</th><th>Zwyciezca wydarzeń</th></tr>";
+        for(i=0;i<osoby.length;i++)
+            {
+                table += "<tr><td>" + osoby[i].imie + "</td><td>" + osoby[i].nazwisko +"</td><td>"+ osoby[i].adres + "</td><td>" + osoby[i].nr_tel +
+                    "</td><td>" + osoby[i].wiek + "</td><td>" + osoby[i].pesel + "</td><td>" + osoby[i].zwyciezca + "</td></tr>";
+            }
+        console.log(osoby);
+        document.getElementById("tabelka").innerHTML = table;
+    }
+    
+</script>
+    <button onclick="sortuj_wiek_ros()">Posortuj wiek rosnąco</button>
+    <button onclick="sortuj_wiek_mal()">Posortuj wiek malejąco</button><br>
+    <button onclick="sortuj_nazwiska()">Posortuj alfabetycznie nazwiskami</button><br>
+    <button onclick="sortuj_iloscZwyciestw()">Posortuj kto wiecej wygrał</button><br>
+    
+    <H2>Dodaj osobe:</H2>
+    <form id="dodajOsobe">
+  Imie:<br>
+  <input type="text" name="imie">
+  <br>
+  Nazwisko:<br>
+  <input type="text" name="nazwisko"><br>
+        <br><b>Adres:</b> Ulica:<input type="text" name="ulica"> Numer: <input type="text" name="numer"> Miasto: <input type="text" name="miasto">
+        Kod pocztowy: <input type="text" name="kod"><br>
+    Numer telefonu: <br><input type="text" name="telefon"><br>
+    Wiek: <br><input type="text" name="wiek"><br>
+    Pesel: <br><input type="text" name="nazwisko"><br>
+  <br>
+</form> 
+    <button onclick="dodaj_osobe()">Dodaj osobe</button>
+    <p id="demoo"></p>
+</body>
+</html>
