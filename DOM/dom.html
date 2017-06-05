@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
     <title>DOM + JS + XML</title>
-        <style>button{margin: 5px; background-color: green; color: white;}</style>
+        <style>button{margin: 5px; background-color: green; color: white;}
+            #osobe{position: absolute; width: 50%;margin: 0 40% 0 0; float: left; border-right: 1px solid black;}
+         #wydarzenie{position: relative;width: 49%;margin: 0 0 0 50%; float: right;}
+            table{background-color: lightgray;}</style>
     </head>
 <body onLoad="loadXMLDoc()">
 <table id="tabelka" border="1">
@@ -27,17 +30,10 @@ function loadXMLDoc()
 var osoby = [];
 function czytaj(xml) 
     {
-  var x,y, i, xmlDoc, table,j,win,adres,jest,wygrany;
-        
+  var x,y, i, xmlDoc, table,j,win,adres,jest;
   xmlDoc = xml.responseXML;
   x = xmlDoc.getElementsByTagName("sportowiec");
         y=xmlDoc.getElementsByTagName("wydarzenie");
-   /* var c = xmlDoc.childNodes;
-    var txt = "";
-    var i;
-    for (i = 0; i < c.length; i++) {
-        txt = txt + c[i].nodeName + "<br>";
-    }*/
         win="";
         adres="";
         jest=0;
@@ -95,36 +91,53 @@ function czytaj(xml)
     osoby.sort(function(a, b){return b.ile_win - a.ile_win});
     wyswietl();
 }
-    function dodaj_osobe(xml) 
+    function dodaj_osobe() 
     {
-        var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() 
-    {
-    if (this.readyState == 4 && this.status == 200) 
-    {
-        xml=this;
-      var x, cloneNode, xmlDoc;
-        xmlDoc = xml.responseXML;
-        x = xmlDoc.getElementsByTagName('sportowiec')[0];
-        cloneNode = x.cloneNode(true);
-        cloneNode.getElementsByTagName("imie")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[0].value;
-        cloneNode.getElementsByTagName("nazwisko")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[1].value;
-        cloneNode.getElementsByTagName("miasto")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[4].value;
-        cloneNode.getElementsByTagName("ulica")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[2].value;
-        cloneNode.getElementsByTagName("nr_domu")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[3].value;
-        cloneNode.getElementsByTagName("kod_pocztowy")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[5].value;
-        cloneNode.getElementsByTagName("nr_telefonu")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[6].value;
-        cloneNode.getElementsByTagName("pesel")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[8].value;
-        cloneNode.getElementsByTagName("wiek")[0].childNodes[0].nodeValue=document.getElementById("dodajOsobe").elements[7].value;
-        console.log(cloneNode);
-        xmlDoc.documentElement.appendChild(cloneNode);
-        
-        loadXMLDoc();//yyy rak
+        var i;
+        for(i=0;i<9;i++)
+            {
+                if(document.getElementById("dodajOsobe").elements[i].value=="")
+                {
+                    alert("Podaj wszystkie wartosci");
+                    return -1;
+                }
+            }
+        var adres = "ul. " + document.getElementById("dodajOsobe").elements[2].value + document.getElementById("dodajOsobe").elements[3].value + " " +
+            document.getElementById("dodajOsobe").elements[4].value + " " + document.getElementById("dodajOsobe").elements[5].value;
+        osoby.push({imie:document.getElementById("dodajOsobe").elements[0].value, 
+                  nazwisko:document.getElementById("dodajOsobe").elements[1].value,
+                  adres:adres,
+                  nr_tel:document.getElementById("dodajOsobe").elements[6].value,
+                  wiek:Number(document.getElementById("dodajOsobe").elements[7].value),
+                  pesel:document.getElementById("dodajOsobe").elements[8].value,
+                  zwyciezca:"",
+                  ile_win:0});
+        document.getElementById("dodajOsobe").reset();
+        wyswietl();
     }
-  };
-  xmlhttp.open("GET", "wybitni.xml" , true);
-  xmlhttp.send();
-        
+    function dodaj_wydarzenie() 
+    {
+        var i;
+        for(i=0;i<10;i++)
+            {
+                if(document.getElementById("dodajWyd").elements[i].value=="")
+                {
+                    alert("Podaj wszystkie wartosci");
+                    return -1;
+                }
+            }
+        i=0;
+        while(i<osoby.length)
+            {
+                if(document.getElementById("dodajWyd").elements[8].value==osoby[i].imie && document.getElementById("dodajWyd").elements[9].value==osoby[i].nazwisko)
+                    {
+                        osoby[i].zwyciezca += "<li>" + document.getElementById("dodajWyd").elements[0].value + "</li>";
+                        osoby[i].ile_win++;
+                        break;
+                    }
+            }
+        document.getElementById("dodajWyd").reset();
+        wyswietl();
     }
     
     function wyswietl()
@@ -145,22 +158,37 @@ function czytaj(xml)
     <button onclick="sortuj_wiek_mal()">Posortuj wiek malejąco</button><br>
     <button onclick="sortuj_nazwiska()">Posortuj alfabetycznie nazwiskami</button><br>
     <button onclick="sortuj_iloscZwyciestw()">Posortuj kto wiecej wygrał</button><br>
-    
-    <H2>Dodaj osobe:</H2>
+    <div id="osobe">
+    <h2>Dodaj osobe:</h2>
     <form id="dodajOsobe">
   Imie:<br>
   <input type="text" name="imie">
   <br>
   Nazwisko:<br>
   <input type="text" name="nazwisko"><br>
-        <br><b>Adres:</b> Ulica:<input type="text" name="ulica"> Numer: <input type="text" name="numer"> Miasto: <input type="text" name="miasto">
+        <br><b>Adres:</b> <br>Ulica:<input type="text" name="ulica"> Numer: <input type="text" name="numer"> Miasto: <input type="text" name="miasto">
         Kod pocztowy: <input type="text" name="kod"><br>
     Numer telefonu: <br><input type="text" name="telefon"><br>
-    Wiek: <br><input type="text" name="wiek"><br>
+    Wiek: <br><input type="number" name="wiek"><br>
     Pesel: <br><input type="text" name="nazwisko"><br>
-  <br>
 </form> 
-    <button onclick="dodaj_osobe()">Dodaj osobe</button>
-    <p id="demoo"></p>
+    <button onclick="dodaj_osobe()">Dodaj osobe</button><br><br><br>
+    </div>
+    <div id="wydarzenie">
+    <h2>Dodaj wydarzenie:</h2>
+    <form id="dodajWyd">
+  Nazwa:<br>
+  <input type="text" name="nazwa">
+  <br>
+        <br><b>Adres:</b> <br>Ulica:<input type="text" name="ulica"> Numer: <input type="text" name="numer"> Miasto: <input type="text" name="miasto">
+        Kod pocztowy: <input type="text" name="kod"><br>
+    Data: <br><input type="date" name="data"><br>
+    Godzina: <br><input type="text" name="godzina"><br>
+    Pula nagród: <br><input type="number" name="pula"><br>
+        <b>Zwycięzca:</b><br>
+        Imie: <input type="text" name="imie"> Nazwisko: <input type="text" name="nazwisko">
+</form> 
+        <button onclick="dodaj_wydarzenie()">Dodaj wydarzenie</button>
+    </div>
 </body>
 </html>
