@@ -1,0 +1,28 @@
+td, th {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.input-group {
+    margin: 20px 0;
+}
+
+svg {
+    height: 150px;
+}
+
+td:first-of-type, td:first-of-type > div {
+    height: 200px;
+    width: 250px;
+}
+
+/* React animation start */
+.fade-enter {
+    opacity: 0;
+}
+
+/* React animation end */
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: .5s ease-in all;
+}
